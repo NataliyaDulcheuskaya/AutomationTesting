@@ -15,4 +15,5 @@ Create Project UI
     Click Create Project
 
 Check Created Project UI
-    Check Project Exist
+    [Arguments]    ${randomCredentials}=${randomCredentials}
+    Check Project Exist    ${randomCredentials}

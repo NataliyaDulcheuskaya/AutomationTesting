@@ -1,6 +1,7 @@
 *** Settings ***
 Resource          resources/ProjectPageLocators.robot
 Library           Selenium2Library
+Resource          ../utils/TestDataGenerator.robot
 
 *** Keywords ***
 Open Create Project Window
@@ -19,4 +20,7 @@ Click Create Project
     Wait Until Element Is Not Visible    ${CAPTION_CREATE_PROJECT_LOCATOR}    ${SELENIUM_LONG_TIMEOUT}
 
 Check Project Exist
-    Select From List By Value    \    ${randomCredentials}
+    [Arguments]    ${randomCredentials}
+    Wait Until Element Is Visible    ${TOP_LOGO_IMAGE_LOCATOR}
+    ${locator}    Set Variable    //a[text()='${randomCredentials}']
+    Wait Until Page Contains Element    ${locator}
