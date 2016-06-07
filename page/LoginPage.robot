@@ -1,6 +1,7 @@
 *** Settings ***
 Library           Selenium2Library
 Resource          resources/LoginPageLocators.robot
+Resource          ../globalConfig/Common.robot
 
 *** Keywords ***
 Login

@@ -1,7 +1,7 @@
 *** Settings ***
 Resource          resources/ProjectPageLocators.robot
 Library           Selenium2Library
-Resource          ../utils/TestDataGenerator.robot
+Resource          ../globalConfig/Common.robot
 
 *** Keywords ***
 Open Create Project Window
@@ -13,7 +13,7 @@ Uncheck Upload Data
     Checkbox Should Not Be Selected    ${CHECKBOX_DATA_UPLOAD_LOCATOR}
 
 Imput Project's Name
-    Input Text    ${PROJECT_NAME_INPUT_TEXT_LOCATOR}    ${randomCredentials}
+    Input Text    ${PROJECT_NAME_INPUT_TEXT_LOCATOR}    ${randomString}
 
 Click Create Project
     Click Button    ${CONFIRM_CREATE_PROJECT_BUTTON_LOCATOR}
@@ -21,6 +21,5 @@ Click Create Project
 
 Check Project Exist
     [Arguments]    ${randomCredentials}
-    Wait Until Element Is Visible    ${TOP_LOGO_IMAGE_LOCATOR}
     ${locator}    Set Variable    //a[text()='${randomCredentials}']
-    Wait Until Page Contains Element    ${locator}
+    Wait Until Page Contains Element    ${locator}    ${SELENIUM_DEFAULT_TIMEOUT}

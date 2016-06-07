@@ -1,7 +1,6 @@
 *** Settings ***
 Resource          ../../page/LoginPage.robot
 Resource          ../../page/NavigatorPage.robot
-Resource          ../../globalConfig/Common.robot
 
 *** Keywords ***
 Login And Check Top Logo Visible UI

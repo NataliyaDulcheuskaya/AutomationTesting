@@ -13,21 +13,21 @@ LoginAsAdminTest
     [Teardown]    Close Browser
 
 LoginWithInvalidUserNameTest
-    [Setup]    Set Random Credentials
+    [Setup]    Set Random String
     [Template]    Login And Check Error Message UI
-    ${randomCredentials}    ${ADMIN_PASSWORD}
+    ${randomString}    ${ADMIN_PASSWORD}
     [Teardown]    Close Browser
 
 LoginWithInvalidPasswordTest
-    [Setup]    Set Random Credentials
+    [Setup]    Set Random String
     [Template]    Login And Check Error Message UI
-    ${ADMIN_LOGIN}    ${randomCredentials}
+    ${ADMIN_LOGIN}    ${randomString}
     [Teardown]    Close Browser
 
 LoginWithInvalidUserNameAndPasswordTest
-    [Setup]    Set Random Credentials
+    [Setup]    Set Random String
     [Template]    Login And Check Error Message UI
-    ${randomCredentials}    ${randomCredentials}
+    ${randomString}    ${randomString}
     [Teardown]    Close Browser
 
 *** Keywords ***
