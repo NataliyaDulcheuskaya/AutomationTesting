@@ -13,18 +13,19 @@ Uncheck Upload Data
     Unselect Checkbox    ${CHECKBOX_DATA_UPLOAD_LOCATOR}
     Checkbox Should Not Be Selected    ${CHECKBOX_DATA_UPLOAD_LOCATOR}
 
-Imput Project's Name
-    Input Text    ${PROJECT_NAME_INPUT_TEXT_LOCATOR}    ${randomString}
+Input Projects Name
+    [Arguments]    ${rndmString}
+    Input Text    ${PROJECT_NAME_INPUT_TEXT_LOCATOR}    ${rndmString}
 
 Click Create Project
     Click Button    ${CONFIRM_CREATE_PROJECT_BUTTON_LOCATOR}
     Wait Until Element Is Not Visible    ${CAPTION_CREATE_PROJECT_LOCATOR}    ${SELENIUM_LONG_TIMEOUT}
 
 Check Project Exist
-    [Arguments]    ${randomCredentials}
-    ${locator}    Set Variable    //a[text()='${randomCredentials}']
-    ${locator2}    Set Variable    //a[text()='${randomCredentials}']/../..//tr//div[contains(text(),('Data Index State:'))]//b
-    ${locator3}    Set Variable    //a[text()='${randomCredentials}']/../..//tr//div[contains(text(),('Percolator Index State:'))]//b
+    [Arguments]    ${rndmString}
+    ${locator}    Set Variable    //a[text()='${rndmString}']
+    ${locator2}    Set Variable    //a[text()='${rndmString}']/../..//tr//div[contains(text(),('Data Index State:'))]//b
+    ${locator3}    Set Variable    //a[text()='${rndmString}']/../..//tr//div[contains(text(),('Percolator Index State:'))]//b
     Wait Until Page Contains Element    ${locator}    ${SELENIUM_DEFAULT_TIMEOUT}
     ${ActualText}    Get Text    ${locator2}
     ${ExpectedStatus}    Set Variable    OK
