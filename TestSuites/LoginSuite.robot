@@ -1,33 +1,26 @@
 *** Settings ***
-Suite Setup
 Library           Selenium2Library
-Resource          ../service/UI/LoginService.robot
-Resource          ../utils/TestDataGenerator.robot
+Library           ../utils/TestDataGen.py    #Resource | ../utils/TestDataGenerator.robot
+Library           ../globalConfig/PythonPropertyReader.py
+Library           ../service/UI/LoginService.py
 
 *** Variables ***
 
 *** Test Cases ***
 LoginAsAdminTest
-    [Template]    Login And Check Top Logo Visible UI
-    ${ADMIN_LOGIN}    ${ADMIN_PASSWORD}
+    Login And Check Top Logo Visible UI
     [Teardown]    Close Browser
 
 LoginWithInvalidUserNameTest
-    [Setup]    Set Random String
-    [Template]    Login And Check Error Message UI
-    ${randomString}    ${ADMIN_PASSWORD}
+    Login And Check Error Message UI
     [Teardown]    Close Browser
 
 LoginWithInvalidPasswordTest
-    [Setup]    Set Random String
-    [Template]    Login And Check Error Message UI
-    ${ADMIN_LOGIN}    ${randomString}
+    Login And Check Error Message UI
     [Teardown]    Close Browser
 
 LoginWithInvalidUserNameAndPasswordTest
-    [Setup]    Set Random String
-    [Template]    Login And Check Error Message UI
-    ${randomString}    ${randomString}
+    Login And Check Error Message UI
     [Teardown]    Close Browser
 
 *** Keywords ***

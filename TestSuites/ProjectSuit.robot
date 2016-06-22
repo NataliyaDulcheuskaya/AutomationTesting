@@ -1,9 +1,10 @@
 *** Settings ***
 Library           Selenium2Library
-Resource          ../Service/UI/LoginService.robot
-Resource          ../utils/TestDataGenerator.robot
 Resource          ../service/UI/ProjectService.robot
 Resource          ../globalConfig/Common.robot
+Library           ../utils/TestDataGen.py
+Library           ../page/ProjectPage.py
+Resource          ../service/UI/LoginService.robot
 
 *** Test Cases ***
 CreateProject
@@ -11,6 +12,6 @@ CreateProject
     [Setup]    Run Keywords    Set Random String
     ...    AND    Login And Check Top Logo Visible UI    ${ADMIN_LOGIN}    ${ADMIN_PASSWORD}
     ...    AND    Open Project Page UI
-    Create Project UI
-    Check Created Project UI
-    [Teardown]    Close Browser
+    Create Project UI    ${rndmString}
+    Check Created Project UI    ${rndmString}
+    [Teardown]    Close browser
