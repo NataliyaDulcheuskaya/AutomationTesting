@@ -1,13 +1,14 @@
 *** Settings ***
 Library           Selenium2Library
 Resource          resources/LoginPageLocators.robot
+Resource          ../globalConfig/Common.robot
 
 *** Keywords ***
 Login
     [Arguments]    ${login}    ${password}
     Open Browser    ${CMP_ADRESS}
-    Input Text    ${LOGIN_INPUT_TEXT_LOCATOR}    ${password}
-    Input Password    ${PASSWORD_INPUT_TEXT_LOCATOR}    ${login}
+    Input Text    ${LOGIN_INPUT_TEXT_LOCATOR}    ${login}
+    Input Password    ${PASSWORD_INPUT_TEXT_LOCATOR}    ${password}
     Click Button    ${SUBMIT_BUTTON_LOCATOR}
 
 Check Error Message Presense

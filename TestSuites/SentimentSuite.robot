@@ -1,16 +1,17 @@
 *** Settings ***
-Library           Selenium2Library
-Resource          ../service/UI/ProjectService.robot
 Resource          ../globalConfig/Common.robot
 Resource          ../service/UI/LoginService.robot
 Resource          ../utils/TestDataGenerator.robot
+Resource          ../service/UI/SentimentService.robot
+Resource          ../service/UI/ProjectService.robot
 
 *** Test Cases ***
-CreateProject
-    [Documentation]    The test is intended to check the creation of a project via Project Page.
+ModifyingRecalculatingSentiment
     [Setup]    Run Keywords    Set Random String
     ...    AND    Login And Check Top Logo Visible UI    ${ADMIN_LOGIN}    ${ADMIN_PASSWORD}
     ...    AND    Open Project Page UI
-    Create Project UI    ${randomString}
-    Check Created Project UI    ${randomString}
-    [Teardown]    Close browser
+    Open Project UI
+    Open Sentiment Tab UI
+    Modify Sentiment UI
+    Recalculate Sentiment UI
+    [Teardown]    Close Browser
