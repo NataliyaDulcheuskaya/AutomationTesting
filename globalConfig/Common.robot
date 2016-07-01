@@ -1,7 +1,7 @@
 *** Variables ***
 ${TEST_ENVIRONMENT}    QA11
 ${SELENIUM_DEFAULT_TIMEOUT}    60
-${SELENIUM_LONG_TIMEOUT}    180
+${SELENIUM_LONG_TIMEOUT}    600
 
 *** Keywords ***
 Set Test Environment

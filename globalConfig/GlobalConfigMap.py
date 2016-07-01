@@ -1,5 +1,0 @@
-cmp_adress_host=""
-cmp_adress_port=""
-cmp_adress_url=""
-admin_login=""
-admin_password=""
